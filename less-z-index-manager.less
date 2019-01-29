@@ -1,0 +1,10 @@
+._generate-z-value(@layer-list, @z-spacing: 100, @i: 1) when (@i =< length(@layer-list)) {
+  @layer-name: extract(@layer-list, @i);
+  @{layer-name}: @z-spacing * @i;
+  
+  ._generate-z-value(@layer-list, @z-spacing, @i + 1);
+}
+
+.get-z(@layer-list, @z-spacing: 100) {
+  ._generate-z-value(@layer-list, @z-spacing)
+}
